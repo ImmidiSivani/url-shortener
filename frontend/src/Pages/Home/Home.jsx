@@ -53,7 +53,7 @@ const Home = () => {
               marginTop: "1rem",
             }}
           >
-            Your App Name
+            Project
           </Title>
 
           <Text
@@ -78,7 +78,7 @@ fw={700}
               isLoggedIn ? navigate("/url/shortener") : navigate("/login")
             }
           >
-            Get Started
+          Get Started
           </Button>
         </div>
       </Container>
