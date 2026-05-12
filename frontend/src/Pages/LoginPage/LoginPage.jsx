@@ -41,6 +41,8 @@ export default function LoginPage() {
           avatar: data.avatar,
           token: data.token,
           email: data.email,
+          id: data.id,               // ✅ add this
+    createdAt: data.createdAt, // ✅ add this
           isLoggedIn: true,
         })
       );

@@ -2,34 +2,28 @@ import { createSlice } from "@reduxjs/toolkit";
 import { jwtDecode } from 'jwt-decode';
 
 // Initial state
-const initialState = {
-  name: "",
-  email: "",
-  avatar: null,
-  token: "",
-  isLoggedIn: false
-};
-
-// Slice definition
-export const userSlice = createSlice({
-  name: "user",
-  initialState,
+const userSlice = createSlice({
+  name: 'user',
+  initialState: {
+    name: null,
+    avatar: null,
+    token: null,
+    email: null,
+    id: null,           // ✅ add this
+    createdAt: null,    // ✅ add this
+    isLoggedIn: false,
+  },
   reducers: {
     setUser: (state, action) => {
       state.name = action.payload.name;
-      state.email = action.payload.email;
       state.avatar = action.payload.avatar;
       state.token = action.payload.token;
+      state.email = action.payload.email;
+      state.id = action.payload.id;           // ✅ add this
+      state.createdAt = action.payload.createdAt; // ✅ add this
       state.isLoggedIn = action.payload.isLoggedIn;
     },
-    removeUser: () => ({
-      name: "",
-      email: "",
-      avatar: null,
-      token: "",
-      isLoggedIn: false
-    })
-  }
+  },
 });
 
 // Actions
@@ -48,5 +42,5 @@ export const getRole = (state) => {
 };
 
 export const getIsLoggedIn = (state) => state.user.isLoggedIn;
-
+export const getUser = (state) => state.user;
 export default userSlice.reducer;
